@@ -34,3 +34,9 @@ permiete escrever atributos no markdowns
 ```
 ![logo do projeto](assets/logo.png){width="300"}
 ```
+
+---
+
+
+blue --check --diff .
+isort --check --diff .
