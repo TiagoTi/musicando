@@ -22,3 +22,15 @@ doc - mkdocs
     mkdostrings busca a doc na docstring no código fonte
         ele leve qualquer doc string (não apenas de python)
         então é necessáro instalar uma ferramenta que trata python: mkdostrings-python
+mkdocs new .
+
+```
+markdown_extensions:
+  - attr_list
+``
+
+permiete escrever atributos no markdowns
+
+```
+![logo do projeto](assets/logo.png){width="300"}
+```
