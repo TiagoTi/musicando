@@ -9,6 +9,12 @@ readme = "README.md"
 python = "^3.12"
 
 
+[tool.poetry.group.develop.dependencies]
+blue = "^0.9.1"
+isort = "^5.13.2"
+pytest = "^8.2.2"
+pytest-cov = "^5.0.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
