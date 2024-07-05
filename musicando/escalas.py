@@ -11,6 +11,13 @@ ESCALAS = {
 GRAUS = 'I II III IV V VI VII VIII IX X XI XII XIII XIV XV XVI XVII'.split()
 
 
+def transformar_string(s: str) -> str:
+    s = s.upper()
+    if len(s) > 1:
+        s = s[:-1] + s[-1].lower()
+    return s
+
+
 def escala(tonica: str, nomeEscala: str) -> dict[str, list[str]]:
     """
     Gera uma escala a partir de uma nota tonica e de um nome de escala
@@ -22,6 +29,10 @@ def escala(tonica: str, nomeEscala: str) -> dict[str, list[str]]:
     Returns:
         Um dicionario com  as notas da escala e os graus.
 
+    Raises:
+        KeyError: caso o nome da escala / intervalo não existe.
+        ValueError: caso a nota não seja uma nota válida.
+
     Examples:
         >>> escala('C', 'MAIOR')
         {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
@@ -32,8 +43,19 @@ def escala(tonica: str, nomeEscala: str) -> dict[str, list[str]]:
         >>> escala('D', 'Iwato')
         {'notas': ['D', 'D#/Eb', 'G', 'G#/Ab', 'C'], 'graus': ['I', 'II', 'III', 'IV', 'V']}
     """
-    tonicaIndex = ESCALA_CROMATICA.index(tonica.upper())
-    intervalos = ESCALAS[nomeEscala.upper()]
+    try:
+        tonicaIndex = ESCALA_CROMATICA.index(transformar_string(tonica))
+    except ValueError as e:
+        raise ValueError(
+            f'Essa nota não existe, tente uma dessas {ESCALA_CROMATICA}'
+        )
+
+    try:
+        intervalos = ESCALAS[nomeEscala.upper()]
+    except KeyError as e:
+        raise KeyError(
+            f'Essa escala não existe ou não foi implementada, tente uma dessas {list(ESCALAS.keys())}'
+        )
 
     notasDaEscala = list()
     graus = list()
@@ -46,20 +68,3 @@ def escala(tonica: str, nomeEscala: str) -> dict[str, list[str]]:
         graus.append(GRAUS[grau])
         grau = grau + 1
     return {'notas': notasDaEscala, 'graus': graus}
-
-
-if __name__ == '__main__':
-    a = escala('A', 'maior')
-    print(a)
-
-    c = escala('C#/Db', 'Iwato')
-    print(c)
-
-    db = escala('C#/Db', 'Tritone')
-    print(db)
-
-    f = escala('F', 'Octatonic-I')
-    print(f)
-
-    g = escala('G', 'Octatonic-II')
-    print(g)
