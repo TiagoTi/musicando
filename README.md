@@ -1,3 +1,5 @@
+poetry shell
+
 pytest
 poetry add --group develop pytest pytest-cov
 
