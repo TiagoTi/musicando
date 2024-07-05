@@ -1,11 +1,11 @@
 ESCALA_CROMATICA = 'A A#/Bb B C C#/Db D D#/Eb E F F#/Gb G G#/Ab'.split()
 
 ESCALAS = {
-    'maior': (0, 2, 4, 5, 7, 9, 11),
-    'Iwato': (0, 1, 5, 6, 10),
-    'Tritone': (0, 1, 4, 6, 7, 10),
-    'Octatonic-I': (0, 2, 3, 5, 6, 8, 9, 11),
-    'Octatonic-II': (0, 1, 3, 4, 6, 7, 9, 10),
+    'MAIOR': (0, 2, 4, 5, 7, 9, 11),
+    'IWATO': (0, 1, 5, 6, 10),
+    'TRITONE': (0, 1, 4, 6, 7, 10),
+    'OCTATONIC-I': (0, 2, 3, 5, 6, 8, 9, 11),
+    'OCTATONIC-II': (0, 1, 3, 4, 6, 7, 9, 10),
 }
 
 GRAUS = 'I II III IV V VI VII VIII IX X XI XII XIII XIV XV XVI XVII'.split()
@@ -23,17 +23,17 @@ def escala(tonica: str, nomeEscala: str) -> dict[str, list[str]]:
         Um dicionario com  as notas da escala e os graus.
 
     Examples:
-        >>> escala('C', 'maior')
+        >>> escala('C', 'MAIOR')
         {'notas': ['C', 'D', 'E', 'F', 'G', 'A', 'B'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
-        >>> escala('A', 'maior')
+        >>> escala('a', 'maior')
         {'notas': ['A', 'B', 'C#/Db', 'D', 'E', 'F#/Gb', 'G#/Ab'], 'graus': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII']}
 
         >>> escala('D', 'Iwato')
         {'notas': ['D', 'D#/Eb', 'G', 'G#/Ab', 'C'], 'graus': ['I', 'II', 'III', 'IV', 'V']}
     """
-    tonicaIndex = ESCALA_CROMATICA.index(tonica)
-    intervalos = ESCALAS[nomeEscala]
+    tonicaIndex = ESCALA_CROMATICA.index(tonica.upper())
+    intervalos = ESCALAS[nomeEscala.upper()]
 
     notasDaEscala = list()
     graus = list()
