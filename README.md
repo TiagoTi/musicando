@@ -14,5 +14,9 @@ padronização de código (code style)
     importes ordenados:
         isort (lint)
             baixa visão ou que não enxerga
-
+---
 doc - mkdocs
+    estrturura de documentação, serve-live, exporta
+    mkdostrings busca a doc na docstring no código fonte
+        ele leve qualquer doc string (não apenas de python)
+        então é necessáro instalar uma ferramenta que trata python: mkdostrings-python
