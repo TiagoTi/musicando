@@ -23,7 +23,9 @@ def test_deve_content_as_notas_na_resposta(grau):
     assert grau in result.stdout
 
 
-@mark.parametrize('nota', ['B', 'C#/Db', 'D#/Eb', 'E', 'F#/Gb', 'G#/Ab', 'A#/Bb'])
+@mark.parametrize(
+    'nota', ['B', 'C#/Db', 'D#/Eb', 'E', 'F#/Gb', 'G#/Ab', 'A#/Bb']
+)
 def test_deve_content_as_notas_na_resposta_escala_B_maior(nota):
     result = runner.invoke(app, ['B', 'Maior'])
     print(result)

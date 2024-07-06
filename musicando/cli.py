@@ -10,8 +10,8 @@ console = Console()
 
 @app.command()
 def escalas(
-    tonica=Argument('c', help='Nota tônica da escala'),
-    tonalidade=Argument('maior', help='Nome da escala'),
+    tonica: str = Argument('c', help='Nota tônica da escala'),
+    tonalidade: str = Argument('maior', help='Nome da escala'),
 ):
     notas, graus = escala(tonica, tonalidade).values()
     table = Table()

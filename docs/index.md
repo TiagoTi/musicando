@@ -2,20 +2,46 @@
 
 # Musicando
 
-## Welcome to MkDocs
+## Como usar
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Você pode usar a aplicação executando o comando:
 
-### Commands
+```sh
+poetry run escalas
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+# ou informando uma nota tonica
+poetry run escalas A#/Bb
 
-### Project layout
+# também é possivel informar o nome de uma escala
+poetry run escalas F OCTATONIC-II
+```
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Exemplo de saída:
+
+```txt
+┏━━━┳━━━━┳━━━━━━━┳━━━━┳━━━┳━━━━┳━━━━━━━┓
+┃ I ┃ II ┃ III   ┃ IV ┃ V ┃ VI ┃ VII   ┃
+┡━━━╇━━━━╇━━━━━━━╇━━━━╇━━━╇━━━━╇━━━━━━━┩
+│ D │ E  │ F#/Gb │ G  │ A │ B  │ C#/Db │
+└───┴────┴───────┴────┴───┴────┴───────┘
+```
+
+## Dúvida
+
+```sh
+poetry run escalas --help
+```
+
+```txt
+ Usage: escalas [OPTIONS] [TONICA] [TONALIDADE]                                                                                                                                  
+                                                                                                                                                                                 
+╭─ Arguments ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│   tonica          [TONICA]      Nota tônica da escala [default: c]                                                                                                            │
+│   tonalidade      [TONALIDADE]  Nome da escala [default: maior]                                                                                                               │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+╭─ Options ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ --install-completion          Install completion for the current shell.                                                                                                       │
+│ --show-completion             Show completion for the current shell, to copy it or customize the installation.                                                                │
+│ --help                        Show this message and exit.                                                                                                                     │
+╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+```
