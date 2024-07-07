@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Roda um comando!
-        run: echo $(pwd)
+      - name: Copia os arquivos
+        uses: actions/checkout@v4
       - name: Outro
         run: echo $(ls)
