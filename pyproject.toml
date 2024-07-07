@@ -6,7 +6,7 @@ authors = ["tiago.cipriano <tiago.cipriano@luilzalabs.com>"]
 readme = "README.md"
 
 [tool.poetry.scripts]
-escalas = "musicando.cli:app"
+musica = "musicando.cli:app"
 
 [tool.poetry.dependencies]
 python = "^3.12"
