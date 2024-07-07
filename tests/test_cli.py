@@ -7,7 +7,7 @@ runner = CliRunner()
 
 
 def test_escala_cli_deve_retornar_0_ao_stdout():
-    result = runner.invoke(app)
+    result = runner.invoke(app, 'escala')
     assert result.exit_code == 0
 
 
@@ -19,7 +19,7 @@ def test_deve_content_as_notas_na_resposta(nota):
 
 @mark.parametrize('grau', ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII'])
 def test_deve_content_as_notas_na_resposta(grau):
-    result = runner.invoke(app, ['E', 'Maior'])
+    result = runner.invoke(app, ['escala', 'E', 'Maior'])
     assert grau in result.stdout
 
 
@@ -27,6 +27,6 @@ def test_deve_content_as_notas_na_resposta(grau):
     'nota', ['B', 'C#/Db', 'D#/Eb', 'E', 'F#/Gb', 'G#/Ab', 'A#/Bb']
 )
 def test_deve_content_as_notas_na_resposta_escala_B_maior(nota):
-    result = runner.invoke(app, ['B', 'Maior'])
+    result = runner.invoke(app, ['escala', 'B', 'Maior'])
     print(result)
     assert nota in result.stdout
